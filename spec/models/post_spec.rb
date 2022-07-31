@@ -10,6 +10,10 @@ RSpec.describe Post, type: :model do
         expect(post.save).not_to be_falsey
     end
 
+    it "can have likes" do
+        expect(post.likes).not_to be_nil
+    end
+
     it "has an associated images" do
         expect(post.images).not_to be_nil
     end
