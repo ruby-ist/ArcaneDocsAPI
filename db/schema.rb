@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_31_042201) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_31_092758) do
   create_table "images", force: :cascade do |t|
     t.string "image_url"
     t.integer "post_id"
@@ -54,4 +54,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_042201) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "images", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "users"
+  add_foreign_key "shares", "posts"
+  add_foreign_key "shares", "users", column: "from_id"
+  add_foreign_key "shares", "users", column: "to_id"
 end
