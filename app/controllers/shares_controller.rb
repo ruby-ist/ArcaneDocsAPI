@@ -9,7 +9,7 @@ class SharesController < ApplicationController
     def create
         @shares = []
         share_params[:users].each do |user_id|
-            share = Share.find_or_initialize_by(from_id: @user.id, to_id: user_id, post: @post.id)
+            share = Share.find_or_initialize_by(from_id: @user.id, to_id: user_id, post_id: @post.id)
             if share.save
                 @shares << share
             else
@@ -37,6 +37,6 @@ class SharesController < ApplicationController
     end
 
     def share_params
-        params.fetch('share', {}).permit(:users)
+        params.fetch('share', {}).permit(:users => [])
     end
 end
