@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
-    before_action :set_user
+    before_action :set_user, only: %i[ index create ]
     before_action :set_post, only: %i[ show update destroy ]
 
     def index
         @posts = @user.posts
-        render json: @posts
+        render json: @posts, include: [:images]
     end
 
     def show
-        render json: @post
+        render json: @post, include: [:images, :user]
     end
 
     def create
