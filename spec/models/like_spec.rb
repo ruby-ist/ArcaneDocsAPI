@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Like, type: :model do
-    let(:user) { User.create! }
-    let(:post) { Post.create!(user: user)}
+    let(:user) { User.create!(session_id: "some@gmail.com") }
+    let(:post) { Post.create!(user: user, title: "Hello")}
 
     it "needs both user and post to save" do
         like = Like.new

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-    let(:user) { User.create! }
+    let(:user) { User.create!(session_id: "some@gmail.com") }
 
     it "has associated tables" do
         expect(user.posts).not_to be_nil
@@ -11,8 +11,8 @@ RSpec.describe User, type: :model do
     end
 
     it "can be deleted along with its children" do
-        another_user = User.create!
-        post = Post.create!(user: user)
+        another_user = User.create!(session_id: "another@gmail.com")
+        post = Post.create!(user: user, title: "Hello")
         like = Like.create!(user: user, post: post)
         share = Share.create!(from: user, to: another_user, post: post)
 

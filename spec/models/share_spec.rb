@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Share, type: :model do
-    let(:first_user) { User.create! }
-    let(:second_user) { User.create! }
-    let(:post) {Post.create!(user: first_user)}
+    let(:first_user) { User.create!(session_id: "some@gmail.com") }
+    let(:second_user) { User.create!(session_id: "another@gmail.com") }
+    let(:post) {Post.create!(user: first_user, title: "Hello")}
     let(:share) { Share.new }
 
     it "needs two users and post to be created" do
