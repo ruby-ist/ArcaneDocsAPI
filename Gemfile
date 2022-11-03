@@ -50,5 +50,5 @@ group :development do
 end
 
 group :production do
-    gem 'pg'
+    gem 'activerecord-cockroachdb-adapter'
 end

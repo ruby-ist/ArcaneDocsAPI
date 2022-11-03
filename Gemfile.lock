@@ -54,6 +54,10 @@ GEM
     activerecord (7.0.3.1)
       activemodel (= 7.0.3.1)
       activesupport (= 7.0.3.1)
+    activerecord-cockroachdb-adapter (7.0.0)
+      activerecord (~> 7.0.3)
+      pg (~> 1.2)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (7.0.3.1)
       actionpack (= 7.0.3.1)
       activejob (= 7.0.3.1)
@@ -113,7 +117,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
-    pg (1.4.1)
+    pg (1.4.4)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -149,6 +153,10 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    rgeo (2.4.0)
+    rgeo-activerecord (7.0.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-expectations (3.11.0)
@@ -182,9 +190,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-cockroachdb-adapter
   bootsnap
   debug
-  pg
   puma (~> 5.0)
   rails (~> 7.0.3)
   rspec-rails
